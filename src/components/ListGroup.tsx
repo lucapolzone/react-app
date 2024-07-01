@@ -15,14 +15,17 @@ function ListGroup() {
   //Event handler
   const handleClick = (event: MouseEvent) => console.log(event);
 
+  //Nessun elemento è selezionato
+  const selectedIndex = 0;
+  
   return (
     <Fragment>
       <h1>List</h1>
       { message }
       <ul className="list-group">
-        {items.map((item) => (
+        {items.map((item, index) => (
           <li 
-            className="list-group-item" 
+            className={ selectedIndex === index ? 'list-group-item active' : 'list-group-item'} 
             key={item} 
             onClick={handleClick}
           >
